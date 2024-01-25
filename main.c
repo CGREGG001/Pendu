@@ -13,27 +13,28 @@ int main(int argc, char const *argv[])
     {
         printf("Vous avez %d essais\n", nombresEssais);
         printf("Quel est le mot mystere ? ");
-        for (int i = 0; i < 6; i++)
+
+        for (int i = 0; i < 6; i++)             //boucle pour lire le motMystere
         {
-            if (lettreTrouvee[i])
+            if (lettreTrouvee[i])               //si une lettre correcte
             {
-                printf("%c", motMystere[i]);
+                printf("%c", motMystere[i]);    //on affiche celle-ci
             }
             else
             {
-                printf("*");
+                printf("*");                    //sinon on affiche une *
             }
         }
-        printf("\nProposez une lettre ");
-        lettre = lireLettre();
+
+        printf("\nProposez une lettre ");       
+        lettre = lireLettre();                  //appel de la fonction = saisie par le joueur d'une lettre
         
-        if (!rechercheLettre(lettre, motMystere, lettreTrouvee))
+        if (!rechercheLettre(lettre, motMystere, lettreTrouvee))    //si lettre PAS correcte alors
         {
-        nombresEssais --;   
+            nombresEssais--;                                        //-1 coup
         }
     }
 
-    
     printf("\nFin du jeu\n");
     return 0;
 }
