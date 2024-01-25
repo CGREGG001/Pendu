@@ -10,3 +10,19 @@ char lireLettre()
     while(getchar() != '\n');
     return caractere;
 }
+
+int rechercheLettre(char lettre, char motMystere[], char lettreTrouvee[])
+{
+    int bonneLettre = 0;
+    
+    for (int i = 0; i < 6; i++)
+    {
+
+        if (lettre == motMystere[i])
+        {
+            bonneLettre = 1;
+            lettreTrouvee[i] = 1;
+        }
+    }
+    return bonneLettre;
+}

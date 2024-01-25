@@ -26,10 +26,13 @@ int main(int argc, char const *argv[])
         }
         printf("\nProposez une lettre ");
         lettre = lireLettre();
-        printf("%c", lettre);
-
+        
+        if (!rechercheLettre(lettre, motMystere, lettreTrouvee))
+        {
         nombresEssais --;   
+        }
     }
+
     
     printf("\nFin du jeu\n");
     return 0;
