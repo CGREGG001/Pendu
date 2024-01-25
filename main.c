@@ -8,16 +8,16 @@ int main(int argc, char const *argv[])
     char motMystere[] = "MARRON", lettreTrouvee[6] = {0}, lettre = 0;
 
     printf("Bienvenue dnas le jeu du pendu\n");
-    printf("Vous avez %d essais\n", nombresEssais);
 
     while (nombresEssais > 0)
     {
-        printf("\nQuel est le mot mystere ? ");
+        printf("Vous avez %d essais\n", nombresEssais);
+        printf("Quel est le mot mystere ? ");
         for (int i = 0; i < 6; i++)
         {
-            if (lettreTrouvee[6] == 1)
+            if (lettreTrouvee[i])
             {
-                printf("%c", motMystere);
+                printf("%c", motMystere[i]);
             }
             else
             {
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
         lettre = lireLettre();
         printf("%c", lettre);
 
-        nombresEssais --;
+        nombresEssais --;   
     }
     
     printf("\nFin du jeu\n");

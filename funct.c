@@ -4,7 +4,7 @@
 
 char lireLettre()
 {
-    char caractere;
+    char caractere = 0;
     caractere = getchar();
     caractere = toupper(caractere);
     while(getchar() != '\n');
