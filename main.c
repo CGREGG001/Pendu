@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "funct.h"
 
 int main(int argc, char const *argv[])
 {
@@ -23,6 +24,10 @@ int main(int argc, char const *argv[])
                 printf("*");
             }
         }
+        printf("\nProposez une lettre ");
+        lettre = lireLettre();
+        printf("%c", lettre);
+
         nombresEssais --;
     }
     
