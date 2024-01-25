@@ -28,3 +28,17 @@ int rechercheLettre(char lettre, char motMystere[], char lettreTrouvee[])
     }
     return bonneLettre;
 }
+
+int gagne(char lettreTrouvee[])
+{
+    int joueurGagne = 1;
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (lettreTrouvee[i] == 0)
+        {
+            joueurGagne = 0;
+        }   
+    }
+    return joueurGagne;
+}
