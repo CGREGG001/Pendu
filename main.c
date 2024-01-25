@@ -11,15 +11,21 @@ int main(int argc, char const *argv[])
 
     while (nombresEssais > 0)
     {
-        printf("Quel est le mot mystere ? ");
-
-        
-        
-
-
+        printf("\nQuel est le mot mystere ? ");
+        for (int i = 0; i < 6; i++)
+        {
+            if (lettreTrouvee[6] == 1)
+            {
+                printf("%c", motMystere);
+            }
+            else
+            {
+                printf("*");
+            }
+        }
         nombresEssais --;
     }
     
-    printf("Fin du jeu\n");
+    printf("\nFin du jeu\n");
     return 0;
 }
