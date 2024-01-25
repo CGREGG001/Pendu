@@ -1,8 +1,8 @@
-#define <stdio.h>
-#define <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main()
+int main(int argc, char const *argv[])
 {
-
+    
     return 0;
 }
