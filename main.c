@@ -1,41 +1,61 @@
+/*
+    nom programme : Jeu du Pendu
+    auteur : Gregory Colard
+    date : 06/02/2024
+    licence : libre
+    compilation : gcc -Wall *.c -o jeu
+    pour executer tapez ./jeu
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
 #include "funct.h"
+#include "dico.h"
+
+#define TAILLETABLEAU 20
 
 int main(int argc, char const *argv[])
 {
-    int nombresEssais = 10;
-    char motMystere[] = "MARRON";   //assignation d'un mot mystere
-    char lettreTrouvee[6] = {0}, lettre = 0;
+    int nombreCoups = 10, tailleMotMystere = 0;
+    char motMystere[TAILLETABLEAU] = {0}, lettreTrouvee[TAILLETABLEAU] = {0}, lettre = 0;
 
-    printf("Bienvenue dans le jeu du pendu\n");
+    printf("\nBienvenue dans le jeu du pendu\n");
 
-    while (nombresEssais > 0 && !gagne(lettreTrouvee))
+    piocherMot(motMystere);                 //utilisation de la fonction pour trouver un mot au hazard
+    tailleMotMystere = strlen(motMystere);  //fonction strlen pour obtenir le nbre de caractere à afficher
+
+    while (nombreCoups > 0 && !motTrouve(lettreTrouvee, tailleMotMystere))
     {
-        printf("\nVous avez %d essais\n", nombresEssais);
+        printf("\nVous avez %d coups\n", nombreCoups);
         printf("Quel est le mot mystere ? ");
-
-        for (int i = 0; i < 6; i++)             //boucle pour lire le motMystere
+        for (int i = 0; i < tailleMotMystere; i++)
         {
-            if (lettreTrouvee[i])               //si une lettre correcte
+            if (lettreTrouvee[i])               //si lettre trouvee on l'affiche
             {
-                printf("%c", motMystere[i]);    //on affiche celle-ci
+                printf("%c", motMystere[i]);
             }
             else
             {
-                printf("*");                    //sinon on affiche une *
+                printf("*");                    //si lettre incorrecte on affiche '*'
             }
         }
+        printf("\nProposez une lettre : ");
+        lettre = lireCaractere();
 
-        printf("\nProposez une lettre ");       
-        lettre = lireLettre();                  //appel de la fonction = saisie par le joueur d'une lettre
-        
-        if (!rechercheLettre(lettre, motMystere, lettreTrouvee))    //si lettre PAS correcte alors
+        if (!rechercherLettre(lettre, motMystere, lettreTrouvee, tailleMotMystere))
         {
-            nombresEssais--;                                        //-1 coup
+            nombreCoups--;
         }
     }
 
-    printf("\nFin du jeu\n");
+    if (motTrouve(lettreTrouvee, tailleMotMystere) == 1)
+        printf("\nBravo ! Vous avez trouve le mot mystere : %s.\n", motMystere);
+    else
+        printf("\nDommage, vous avez perdu ! Le mot mystere etait %s.\n", motMystere);
+
+    printf("\nFIN\n");
     return 0;
 }

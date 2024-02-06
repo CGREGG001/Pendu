@@ -1,7 +1,6 @@
-Jeu du pendu
+Bienvenue dans le jeu du pendu
 
-Trouvez le mot mystère en proposant une lettre
-Le mot mystère ne contient ni d'espace ni d'accent
-Après 10 lettres invalides, la partie se termine
+Vous devrez trouver le mot mystere avec maximum 10 erreurs.
+Le mot myst�re ne contient pas d'accent.
 
 Bon jeu !
